@@ -1,11 +1,15 @@
 version: 2.1
+
 orbs:
-    bridgecrew: bridgecrew/bridgecrew@1.0.3
+  checkov: bridgecrew/checkov@0.0.4
+
 jobs:
-    build:
-      executor: bridgecrew/default
-      steps:
-        - checkout
-        - bridgecrew/scan:
-            directory: ‘.’
-            api-key-variable: BC_API_KEY
+  build:
+    executor: checkov/default
+    steps:
+      - checkout
+      - checkov/scan:
+          directory: '.'
+          soft-fail: true
+          output: "junitxml"
+          api-key: BC-API-KEY
