@@ -11,5 +11,5 @@ jobs:
       - checkov/scan:
           directory: '.'
           soft-fail: true
-          output: "junitxml"
-          api-key: BC-API-KEY
+          output: "json"
+          api-key: BC_API_KEY
